@@ -84,7 +84,7 @@ def filterNames(nameList):
         ( (n.name[-2] == 'o') and (n.name[-1] == 'h') ) ]
 
     # Only two syllables
-    nameList = [n for n in nameList if n.syls == 2]
+    nameList = [n for n in nameList if (n.syls == 2) or (n.syls == 1)]
     return nameList
 # END filterNames
 
