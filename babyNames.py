@@ -68,7 +68,7 @@ def filterNames(nameList):
     Applies various filters so that only desired names are returned
     The filters are:
         1) Only include girls
-        2) Only include names whose last character is 'a', 'ah', or 'oh'
+        2) Only include names whose last character is 'a' or 'ah'
         3) Only include names that have two syllables
     Inputs:
         nameList - A list of Name objects
@@ -80,8 +80,7 @@ def filterNames(nameList):
     # Only last character = 'a', 'ah', or 'oh'
     nameList = [n for n in nameList if \
         ( n.name[-1] == 'a' ) or \
-        ( (n.name[-2] == 'a') and (n.name[-1] == 'h') ) or \
-        ( (n.name[-2] == 'o') and (n.name[-1] == 'h') ) ]
+        ( (n.name[-2] == 'a') and (n.name[-1] == 'h') ) ]
 
     # Only two syllables
     nameList = [n for n in nameList if (n.syls == 2) or (n.syls == 1)]
