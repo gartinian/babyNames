@@ -48,7 +48,7 @@ def getNameList(namePath):
     """
     Parses a csv to get a list of Name objects
     Inputs:
-        namePath - A string containing a path to a csv 
+        namePath - A string containing a path to a csv
                    with Name, Sex, and Count information
     Output:
         A list of Name objects
@@ -68,7 +68,7 @@ def filterNames(nameList):
     Applies various filters so that only desired names are returned
     The filters are:
         1) Only include girls
-        2) Only include names whose last character is 'a'
+        2) Only include names whose last character is 'a', 'ah', or 'oh'
         3) Only include names that have two syllables
     Inputs:
         nameList - A list of Name objects
@@ -77,8 +77,12 @@ def filterNames(nameList):
     """
     # Only girls
     nameList = [n for n in nameList if n.sex == 'F']
-    # Only last character = a
-    nameList = [n for n in nameList if n.name[-1] == 'a']
+    # Only last character = 'a', 'ah', or 'oh'
+    nameList = [n for n in nameList if \
+        ( n.name[-1] == 'a' ) or \
+        ( (n.name[-2] == 'a') and (n.name[-1] == 'h') ) or \
+        ( (n.name[-2] == 'o') and (n.name[-1] == 'h') ) ]
+
     # Only two syllables
     nameList = [n for n in nameList if n.syls == 2]
     return nameList
